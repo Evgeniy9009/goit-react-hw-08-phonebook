@@ -1,18 +1,19 @@
-import Contacts from "./Contacts/Contacts";
 import React from 'react';
+import Navbar from "./components/Navbar/Navbar";
+import UserRoutes from "./UserRoutes";
 
 export const App = () => {
   return (
     <div
       style={{
-
         display: 'flex',
         justifyContent: 'center',
-
+        flexDirection: 'column',
         color: '#010101'
       }}
     >
-      <Contacts/>
+      <Navbar />
+      <UserRoutes/>
     </div>
   );
 };
