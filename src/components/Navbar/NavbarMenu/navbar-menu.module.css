@@ -7,12 +7,13 @@
     text-decoration: none;
     display: inline-block;
     padding: 10px 15px;
-    color: red;
-    border: 1px solid red;
+    color: rgb(12, 204, 63);
+    border: 1px solid rgb(12, 204, 63);
     background-color: #fff;
+    border-radius: 8px;
 }
 
 .link.active {
-    background-color: red;
+    background-color: rgb(12, 204, 63);
     color: #fff;
 }

@@ -1,22 +1,21 @@
+import { useMemo } from "react";
 import PropTypes from "prop-types";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
 
-import useForm from 'shared/hooks/useForm'
+import useForm from '../../shared/hooks/useForm';
 
-import TextField from 'shared/components/TextField/TextField'
+import TextField from "../../shared/components/TextField/TextField";
 
-import initialState from './initialState'
-import fields from './fields'
-import { useMemo } from 'react'
+import initialState from "./initialState";
+import fields from "./fields";
 
-const LoginForm = ({ onSubmit }) => {
-    const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
-    
-    const emailId = useMemo(() => nanoid(), [])
-    const passwordId = useMemo(() => nanoid(), [])
+const LoginForm = ({onSubmit}) => {
+    const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit});
 
-    const { email, password } = state
+    const emailId = useMemo(()=> nanoid(), []);
+    const passwordId = useMemo(()=> nanoid(), []);
 
+    const {email, password} = state;
 
     return (
         <form onSubmit={handleSubmit}>
@@ -27,7 +26,7 @@ const LoginForm = ({ onSubmit }) => {
     )
 }
 
-export default LoginForm
+export default LoginForm;
 
 LoginForm.defaultProps = {
     onSubmit: () => {}

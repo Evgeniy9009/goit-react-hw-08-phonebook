@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { nanoid } from "nanoid";
 import { featchContacts, addContact, removeContact } from "./contacts-operation";
 import { pendingCallback, rejectedCallback } from "shared/helper/redux";
+
 const initialState = {
     items: [ ],
     loading: false,

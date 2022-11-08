@@ -4,15 +4,18 @@ import NavbarMenu from "./NavbarMenu/NavbarMenu";
 import NavbarAuth from './NavbarAuth/NavbarAuth';
 
 import styles from "./navbar.module.css";
+import NavbarUser from './NavbarUser/NavbarUser';
+import useAuth from '../../shared/hooks/useAuth';
 
 const Navbar = () => {
+    const isLogin = useAuth()
     return (
         <nav className={styles.navbar}>
             <div className="container">
                 <div className={styles.row}>
                     <Link to="/">Logo</Link>
-                    <NavbarMenu />
-                    <NavbarAuth />
+                    { isLogin && <NavbarMenu />}
+                    { isLogin ? <NavbarUser/>  : <NavbarAuth/>}
                 </div>
             </div>
         </nav>

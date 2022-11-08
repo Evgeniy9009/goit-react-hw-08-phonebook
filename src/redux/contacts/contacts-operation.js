@@ -1,5 +1,5 @@
-import * as api from '../../shared/api/contacts'
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import * as api from '../../shared/api/contacts'
 // import { getState } from "./contacts-selector";
 
 const isDublicate = ({name, phone}, contacts) => {
@@ -14,10 +14,11 @@ const isDublicate = ({name, phone}, contacts) => {
 
 
 export const featchContacts = createAsyncThunk(
-    'contacts/featch',
+    'contacts/fetch',
     async (_, thunkApi) => {
         try {
             const data = await api.getContacts()
+            console.log('data', data)
             return data
         } catch (error) {
             return thunkApi.rejectWithValue(error)
@@ -45,6 +46,7 @@ export const featchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
     'contacts/add',
     async (data, { rejectWithValue }) => {
+        console.log('data', data)
         try {
             const result = await api.addContact(data)
             return result
@@ -53,10 +55,11 @@ export const addContact = createAsyncThunk(
         }
     },
     {
-        condition: (data, { getState }) => {
+        condition: (data, { getState }) => {                   
         const { contacts } = getState()
         if (isDublicate(data, contacts.items)) {
-            return alert ('sorry')
+            alert(`${data.name} - ${data.phone} is alredy exist`)
+            return false
         }
     }}
 )

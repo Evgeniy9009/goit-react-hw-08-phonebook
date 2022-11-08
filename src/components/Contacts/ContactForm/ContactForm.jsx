@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { nanoid } from 'nanoid'
-import css from 'components/ContactForm/ContactForm.module.css'
+import css from 'components/Contacts/ContactForm/ContactForm.module.css'
 import { addContact } from 'redux/contacts/contacts-operation'
 import { useDispatch, useSelector } from 'react-redux'
 import { getFilterContacts } from 'redux/contacts/contacts-selector'
