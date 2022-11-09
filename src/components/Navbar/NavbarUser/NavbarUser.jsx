@@ -5,7 +5,8 @@ import { getUser } from 'redux/auth/auth-selectors'
 
 export default function NavbarUser() {
     const dispatch = useDispatch
-    const {name} = useSelector(getUser)
+  const { name } = useSelector(getUser)
+  
 
     const onLogout = () => {
         dispatch(logout())

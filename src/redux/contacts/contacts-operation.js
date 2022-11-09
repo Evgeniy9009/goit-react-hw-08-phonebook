@@ -2,12 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as api from '../../shared/api/contacts'
 // import { getState } from "./contacts-selector";
 
-const isDublicate = ({name, phone}, contacts) => {
+const isDublicate = ({name, number}, contacts) => {
     const normalizedName = name.toLowerCase();
-    const normalizedPhone = phone.toLowerCase();
+    const normalizedNumber = number.toLowerCase();
 
     const result = contacts.find(item => {
-        return (normalizedName === item.name.toLowerCase() && normalizedPhone === item.phone.toLowerCase())
+        return (normalizedName === item.name.toLowerCase() && normalizedNumber === item.number.toLowerCase())
     });
     return Boolean(result);
 }
@@ -58,7 +58,7 @@ export const addContact = createAsyncThunk(
         condition: (data, { getState }) => {                   
         const { contacts } = getState()
         if (isDublicate(data, contacts.items)) {
-            alert(`${data.name} - ${data.phone} is alredy exist`)
+            alert(`${data.name} - ${data.number} is alredy exist`)
             return false
         }
     }}

@@ -30,6 +30,7 @@ export const login = async (loginData) => {
 
 export const logout = async () => {
     const { data } = await instance.post('/users/logout')
+    console.log('data', data)
     return data
 }
 

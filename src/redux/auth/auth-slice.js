@@ -56,19 +56,20 @@ const authSlice = createSlice({
             store.loading = false;
             store.error = payload;
         },
-        // [current.pending]: (store) => {
-        //     store.isLoadingUser = true;
-        //     store.error = null;
-        // },
-        // [current.fulfilled]: (store, {payload}) => {
-        //     store.isLoadingUser = false;
-        //     store.user = payload.user;
-        //     store.isLogin = true;
-        // },
-        // [current.rejected]: (store, {payload}) => {
-        //     store.isLoadingUser = false;
-        //     store.error = payload;
-        // },
+        [current.pending]: (store) => {
+            store.isLoadingUser = true;
+            store.error = null;
+        },
+        [current.fulfilled]: (store, { payload }) => {
+            console.log('payload', payload)
+            store.isLoadingUser = false;
+            store.user = payload;
+            store.isLogin = true;
+        },
+        [current.rejected]: (store, {payload}) => {
+            store.isLoadingUser = false;
+            store.error = payload;
+        },
     }
 })
 

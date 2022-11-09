@@ -16,9 +16,9 @@ export default function ContactList() {
     dispatch(action)
   }
 
-  const elements = items?.map(({ name, phone, id}) => {
+  const elements = items?.map(({ name, number, id}) => {
       return (
-      items.length>0 &&  <li className={css.item} key={id} > {name} {phone} <button className={css.btn} onClick={ () => {onRemoveContact(id)} }>Delete</button></li>
+      items.length>0 &&  <li className={css.item} key={id} > {name} {number} <button className={css.btn} onClick={ () => {onRemoveContact(id)} }>Delete</button></li>
       )
     })
   return (

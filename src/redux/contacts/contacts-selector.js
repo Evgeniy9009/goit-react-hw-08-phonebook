@@ -13,10 +13,10 @@ export const getFilterContacts = ({ filter, contacts }) => {
     }
 
     const normalezedFilter = filter.toLocaleLowerCase()
-    const filteredContacts = contacts.items.filter(({ name, phone }) => {
+    const filteredContacts = contacts.items.filter(({ name, number }) => {
         const normalizedName = name.toLocaleLowerCase()
-        const normalizedPhone = phone.toLocaleLowerCase()
-        const res = normalizedName.includes(normalezedFilter) || normalizedPhone.includes(normalezedFilter)
+        const normalizedNumber = number.toLocaleLowerCase()
+        const res = normalizedName.includes(normalezedFilter) || normalizedNumber.includes(normalezedFilter)
         return res
     })
     return filteredContacts
