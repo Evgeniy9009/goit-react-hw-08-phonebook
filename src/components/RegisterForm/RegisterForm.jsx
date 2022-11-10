@@ -31,7 +31,7 @@ const RegisterForm = ({ onSubmit }) => {
                 <TextField id={nameId} value={name} handleChange={handleChange} {...fields.name} />
                 <TextField id={emailId} value={email} handleChange={handleChange} {...fields.email} />
                 <TextField id={passwordId} value={password} handleChange={handleChange} {...fields.password} />
-                <Button>Register {loading && <Spinner />}</Button>
+                <Button type="submit">Register {loading && <Spinner />}</Button>
             </form>
     )
 }
