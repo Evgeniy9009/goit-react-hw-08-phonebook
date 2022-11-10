@@ -4,6 +4,9 @@ import css from 'components/Contacts/ContactForm/ContactForm.module.css'
 import { addContact } from 'redux/contacts/contacts-operation'
 import { useDispatch, useSelector } from 'react-redux'
 import { getFilterContacts } from 'redux/contacts/contacts-selector'
+import { Button } from '@chakra-ui/react'
+
+
 
 export default function ContactForm() {
 
@@ -12,6 +15,8 @@ export default function ContactForm() {
 
     const idName = nanoid()
     const idNumber = nanoid()
+
+
 
     const contacts = useSelector(getFilterContacts)
     const dispatch = useDispatch()
@@ -75,7 +80,7 @@ export default function ContactForm() {
                 title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                 required
             />
-        <button type='submit'>Add contact</button>
+            <Button type='submit'>Add contact</Button>
     </form >
         )
 }

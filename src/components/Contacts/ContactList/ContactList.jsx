@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeContact } from 'redux/contacts/contacts-operation';
 import { getFilterContacts, getNumberOfAllContacts } from '../../../redux/contacts/contacts-selector'
 
+import { DeleteIcon } from '@chakra-ui/icons'
+import { Button } from '@chakra-ui/react'
+
 export default function ContactList() {
   const items = useSelector(getFilterContacts)
   const dispatch = useDispatch()
@@ -18,7 +21,7 @@ export default function ContactList() {
 
   const elements = items?.map(({ name, number, id}) => {
       return (
-      items.length>0 &&  <li className={css.item} key={id} > {name} {number} <button className={css.btn} onClick={ () => {onRemoveContact(id)} }>Delete</button></li>
+      items.length>0 &&  <li className={css.item} key={id} > {name} {number} <Button  onClick={ () => {onRemoveContact(id)} }><DeleteIcon/> </Button></li>
       )
     })
   return (

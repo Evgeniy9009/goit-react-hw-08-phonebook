@@ -24,7 +24,6 @@ export const login = async (loginData) => {
     const { data } = await instance.post('/users/login', loginData)
     instance.defaults.headers.common.authorization = `Bearer ${data.token} `
     console.log('data', data)
-    console.log('instance', instance)
     return data
 } 
 

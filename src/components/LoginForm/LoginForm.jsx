@@ -1,6 +1,8 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
+import { Button } from '@chakra-ui/react'
+
 
 import useForm from '../../shared/hooks/useForm';
 
@@ -21,7 +23,7 @@ const LoginForm = ({onSubmit}) => {
         <form onSubmit={handleSubmit}>
             <TextField id={emailId} value={email} handleChange={handleChange} {...fields.email} />
             <TextField id={passwordId} value={password} handleChange={handleChange} {...fields.password} />
-            <button>Login</button>
+            <Button>Login</Button>
         </form>
     )
 }

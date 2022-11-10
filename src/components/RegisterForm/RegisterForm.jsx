@@ -7,8 +7,16 @@ import { useMemo } from 'react'
 import useForm from "shared/hooks/useForm";
 import TextField from "shared/components/TextField/TextField";
 
+import { getLoading } from "redux/auth/auth-selectors";
+import { Spinner } from '@chakra-ui/react'
+import { useSelector } from "react-redux";
+import { Button } from '@chakra-ui/react'
+
+
 const RegisterForm = ({ onSubmit }) => {
     const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
+    
+    const loading = useSelector(getLoading)
     
     const nameId = useMemo(() => nanoid(), [])
     const emailId = useMemo(() => nanoid(), [])
@@ -18,12 +26,13 @@ const RegisterForm = ({ onSubmit }) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <TextField id={nameId} value={name} handleChange={handleChange} {...fields.name} />
-            <TextField id={emailId} value={email} handleChange={handleChange} {...fields.email} />
-            <TextField id={passwordId} value={password} handleChange={handleChange} {...fields.password} />
-            <button>Register</button>
-        </form>
+
+            <form onSubmit={handleSubmit}>
+                <TextField id={nameId} value={name} handleChange={handleChange} {...fields.name} />
+                <TextField id={emailId} value={email} handleChange={handleChange} {...fields.email} />
+                <TextField id={passwordId} value={password} handleChange={handleChange} {...fields.password} />
+                <Button>Register {loading && <Spinner />}</Button>
+            </form>
     )
 }
 

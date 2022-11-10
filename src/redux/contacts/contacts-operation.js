@@ -18,7 +18,6 @@ export const featchContacts = createAsyncThunk(
     async (_, thunkApi) => {
         try {
             const data = await api.getContacts()
-            console.log('data', data)
             return data
         } catch (error) {
             return thunkApi.rejectWithValue(error)
@@ -46,7 +45,6 @@ export const featchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
     'contacts/add',
     async (data, { rejectWithValue }) => {
-        console.log('data', data)
         try {
             const result = await api.addContact(data)
             return result

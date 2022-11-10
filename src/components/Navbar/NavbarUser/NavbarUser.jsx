@@ -1,10 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from 'redux/auth/auth-operations'
-import { getUser } from 'redux/auth/auth-selectors'
+import { logout } from '../../../redux/auth/auth-operations'
+import { getUser } from '../../../redux/auth/auth-selectors'
+import { Button } from '@chakra-ui/react'
+
 
 export default function NavbarUser() {
-    const dispatch = useDispatch
+    const dispatch = useDispatch()
   const { name } = useSelector(getUser)
   
 
@@ -14,7 +16,7 @@ export default function NavbarUser() {
   
   return (
       <div>{`Welcome back, ${name}  `}
-          <button onClick={onLogout}>Logout</button>
+          <Button onClick={onLogout}>Logout</Button>
     </div>
   )
 }
