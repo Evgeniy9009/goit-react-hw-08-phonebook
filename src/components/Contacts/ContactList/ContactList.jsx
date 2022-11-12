@@ -28,7 +28,7 @@ export default function ContactList() {
     <div>
       <ul>{elements}</ul>
       {items.length === 0 && <p>Ничего не найдено.</p>}
-      <p>Всего контактов: {contactsCount}</p> 
+      <h2>Всего контактов: {contactsCount}</h2>
     </div>
   )
 }

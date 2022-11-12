@@ -26,19 +26,23 @@ const authSlice = createSlice({
         },
         [signup.rejected]: (store, {payload}) => {
             store.loading = false;
+            alert('Логин или пароль не верный, попробуйте снова.')
             store.error = payload;
         },
         [login.pending]: (store) => {
             store.loading = true;
             store.error = null;
         },
-        [login.fulfilled]: (store, {payload}) => {
+        [login.fulfilled]: (store, { payload }) => {
+            console.log('payload', payload)
             store.loading = false;
             store.user = payload.user;
             store.token = payload.token;
             store.isLogin = true;
         },
-        [login.rejected]: (store, {payload}) => {
+        [login.rejected]: (store, { payload }) => {
+            console.log('payload', payload)
+            alert('Логин или пароль не верный, попробуйте снова.')
             store.loading = false;
             store.error = payload;
         },

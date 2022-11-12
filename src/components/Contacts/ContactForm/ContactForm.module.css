@@ -8,16 +8,18 @@
 }
 
 .form input {
+    border: 1px solid black;
+    border-radius: 4px;
     margin-top: 10px;
     padding: 5px;
 }
 
-.form button {
-    width: 100px;
+.form Button {
+    width: 120px;
     margin-top: 20px;
-    padding: 5px;
-    background-color: #fff;
-    border-radius: 5px;
+    background-color: rgb(218, 215, 215);
+    border: 1px solid black;
+    border-radius: 4px;
 }
 
 .form button:focus, .form button:hover {

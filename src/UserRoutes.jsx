@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from 'react-router-dom'
 import PrivateRoute from "components/PrivateRoute/PrivateRoute";
 import PublicRoute from "components/PublicRoute/PublicRoute";
+import SharedLoyout from "components/SharedLoyout/SharedLoyout";
+import Loading from "components/Loading/Loading";
 
 
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'))
@@ -10,8 +12,8 @@ const LoginPage = lazy(() => import("./pages/LoginPage/LoginPage") ) ;
 
 const UserRoutes = () => {
     return (
-        <Suspense fallback={<p>...Load page</p>}>
-            <Routes>
+        <Suspense fallback={<Loading/>}>
+            <Routes path="/" element={<SharedLoyout />}>
                 <Route element={<PublicRoute />}>
                     <Route path="/register" element={<RegisterPage />} />
                     <Route path="/login" element={<LoginPage />} />
