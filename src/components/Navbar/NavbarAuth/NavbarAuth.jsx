@@ -11,7 +11,6 @@ export default function NavbarAuth() {
   return (
     <div >
         <NavLink className={getClassName} to="/register">Register</NavLink>
-        |
         <NavLink className={getClassName} to="/login">Login</NavLink>
     </div>
   )
